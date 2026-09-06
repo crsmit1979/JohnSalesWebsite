@@ -1,5 +1,390 @@
-<html>
-  <body>
-    <h1>hello there</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferrix AI — AI-Powered IT Software</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          deep: '#0D2B2E',
+          ice: '#F1F6F5',
+          amber: '#E8A33D',
+          cyan: '#2FB8C4',
+          coral: '#E4674B',
+          ink: '#122120',
+          slate: '#4C6260',
+          line: '#D9E3E0',
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F1F6F5; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+  .focus-ring:focus-visible {
+    outline: 2px solid #2FB8C4;
+    outline-offset: 3px;
+  }
+  .pulse {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  .hero-mesh {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(232,163,61,0.16) 0%, transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(47,184,196,0.18) 0%, transparent 45%),
+      radial-gradient(circle at 60% 80%, rgba(228,103,75,0.12) 0%, transparent 40%);
+  }
+</style>
+</head>
+<body class="bg-ice text-ink antialiased">
+
+<!-- ============ NAV ============ -->
+<header class="border-b border-line bg-ice/95 backdrop-blur sticky top-0 z-50">
+  <nav class="max-w-6xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
+    <a href="#top" class="flex items-center gap-2.5 focus-ring rounded-sm">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="8" cy="8" r="3.5" fill="#E8A33D"/>
+        <circle cx="22" cy="8" r="3.5" fill="#2FB8C4"/>
+        <circle cx="15" cy="22" r="3.5" fill="#E4674B"/>
+        <line x1="8" y1="8" x2="15" y2="22" stroke="#4C6260" stroke-width="1.2"/>
+        <line x1="22" y1="8" x2="15" y2="22" stroke="#4C6260" stroke-width="1.2"/>
+        <line x1="8" y1="8" x2="22" y2="8" stroke="#4C6260" stroke-width="1.2"/>
+      </svg>
+      <span class="font-serif text-xl font-semibold tracking-tight text-deep">Ferrix AI</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#about" class="text-[15px] text-slate hover:text-deep transition-colors focus-ring rounded-sm">About Us</a>
+      <a href="#services" class="text-[15px] text-slate hover:text-deep transition-colors focus-ring rounded-sm">Services</a>
+      <a href="#contact" class="text-[15px] text-slate hover:text-deep transition-colors focus-ring rounded-sm">Contact Us</a>
+    </div>
+
+    <a href="#contact" class="hidden md:inline-flex items-center px-5 py-2.5 bg-deep text-ice text-[15px] font-medium rounded-sm hover:bg-coral transition-colors focus-ring">
+      Book a demo
+    </a>
+
+    <button id="menuBtn" aria-label="Open menu" aria-expanded="false" class="md:hidden p-2 -mr-2 focus-ring rounded-sm">
+      <svg id="menuIconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D2B2E" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="menuIconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D2B2E" stroke-width="1.8" stroke-linecap="round" class="hidden"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-line bg-ice">
+    <div class="px-6 py-5 flex flex-col gap-4">
+      <a href="#about" class="text-[15px] text-slate hover:text-deep transition-colors">About Us</a>
+      <a href="#services" class="text-[15px] text-slate hover:text-deep transition-colors">Services</a>
+      <a href="#contact" class="text-[15px] text-slate hover:text-deep transition-colors">Contact Us</a>
+      <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 bg-deep text-ice text-[15px] font-medium rounded-sm mt-1">Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero-mesh">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <p class="text-coral text-[15px] font-medium mb-5">IT operations software, built with AI at the core</p>
+        <h1 class="font-serif text-[2.75rem] leading-[1.08] sm:text-6xl sm:leading-[1.05] font-semibold text-deep max-w-xl">
+          Software that watches your systems so your team doesn't have to.
+        </h1>
+        <p class="mt-7 text-lg text-slate max-w-md leading-relaxed">
+          Ferrix monitors infrastructure, predicts failures before they happen, and resolves routine
+          incidents automatically — so IT teams spend their time on the work that actually needs a person.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a href="#contact" class="inline-flex items-center px-6 py-3.5 bg-deep text-ice font-medium rounded-sm hover:bg-coral transition-colors focus-ring">
+            Book a demo
+          </a>
+          <a href="#services" class="inline-flex items-center px-6 py-3.5 border border-slate/30 text-deep font-medium rounded-sm hover:border-deep transition-colors focus-ring">
+            See what it does
+          </a>
+        </div>
+      </div>
+
+      <!-- System diagram illustration -->
+      <div class="lg:col-span-5">
+        <svg viewBox="0 0 420 380" class="w-full h-auto" role="img" aria-label="Diagram showing servers connected to a central monitoring node">
+          <line x1="210" y1="190" x2="90" y2="70" stroke="#D9E3E0" stroke-width="1.5"/>
+          <line x1="210" y1="190" x2="330" y2="70" stroke="#D9E3E0" stroke-width="1.5"/>
+          <line x1="210" y1="190" x2="70" y2="230" stroke="#D9E3E0" stroke-width="1.5"/>
+          <line x1="210" y1="190" x2="350" y2="230" stroke="#D9E3E0" stroke-width="1.5"/>
+          <line x1="210" y1="190" x2="120" y2="330" stroke="#D9E3E0" stroke-width="1.5"/>
+          <line x1="210" y1="190" x2="300" y2="330" stroke="#D9E3E0" stroke-width="1.5"/>
+
+          <g>
+            <rect x="70" y="52" width="40" height="36" rx="4" fill="#F1F6F5" stroke="#E8A33D" stroke-width="1.6"/>
+            <line x1="76" y1="62" x2="104" y2="62" stroke="#E8A33D" stroke-width="1.2"/>
+            <line x1="76" y1="70" x2="104" y2="70" stroke="#E8A33D" stroke-width="1.2"/>
+            <line x1="76" y1="78" x2="94" y2="78" stroke="#E8A33D" stroke-width="1.2"/>
+          </g>
+          <g>
+            <rect x="310" y="52" width="40" height="36" rx="4" fill="#F1F6F5" stroke="#2FB8C4" stroke-width="1.6"/>
+            <line x1="316" y1="62" x2="344" y2="62" stroke="#2FB8C4" stroke-width="1.2"/>
+            <line x1="316" y1="70" x2="344" y2="70" stroke="#2FB8C4" stroke-width="1.2"/>
+            <line x1="316" y1="78" x2="334" y2="78" stroke="#2FB8C4" stroke-width="1.2"/>
+          </g>
+          <g>
+            <rect x="50" y="212" width="40" height="36" rx="4" fill="#F1F6F5" stroke="#E4674B" stroke-width="1.6"/>
+            <line x1="56" y1="222" x2="84" y2="222" stroke="#E4674B" stroke-width="1.2"/>
+            <line x1="56" y1="230" x2="84" y2="230" stroke="#E4674B" stroke-width="1.2"/>
+            <line x1="56" y1="238" x2="74" y2="238" stroke="#E4674B" stroke-width="1.2"/>
+          </g>
+          <g>
+            <rect x="330" y="212" width="40" height="36" rx="4" fill="#F1F6F5" stroke="#E8A33D" stroke-width="1.6"/>
+            <line x1="336" y1="222" x2="364" y2="222" stroke="#E8A33D" stroke-width="1.2"/>
+            <line x1="336" y1="230" x2="364" y2="230" stroke="#E8A33D" stroke-width="1.2"/>
+            <line x1="336" y1="238" x2="354" y2="238" stroke="#E8A33D" stroke-width="1.2"/>
+          </g>
+          <g>
+            <rect x="100" y="312" width="40" height="36" rx="4" fill="#F1F6F5" stroke="#2FB8C4" stroke-width="1.6"/>
+            <line x1="106" y1="322" x2="134" y2="322" stroke="#2FB8C4" stroke-width="1.2"/>
+            <line x1="106" y1="330" x2="134" y2="330" stroke="#2FB8C4" stroke-width="1.2"/>
+            <line x1="106" y1="338" x2="124" y2="338" stroke="#2FB8C4" stroke-width="1.2"/>
+          </g>
+          <g>
+            <rect x="280" y="312" width="40" height="36" rx="4" fill="#F1F6F5" stroke="#E4674B" stroke-width="1.6"/>
+            <line x1="286" y1="322" x2="314" y2="322" stroke="#E4674B" stroke-width="1.2"/>
+            <line x1="286" y1="330" x2="314" y2="330" stroke="#E4674B" stroke-width="1.2"/>
+            <line x1="286" y1="338" x2="304" y2="338" stroke="#E4674B" stroke-width="1.2"/>
+          </g>
+
+          <circle cx="150" cy="130" r="3.5" fill="#E8A33D" class="pulse"/>
+          <circle cx="270" cy="130" r="3.5" fill="#2FB8C4" class="pulse" style="animation-delay:0.6s"/>
+          <circle cx="140" cy="210" r="3.5" fill="#E4674B" class="pulse" style="animation-delay:1.2s"/>
+          <circle cx="280" cy="210" r="3.5" fill="#E8A33D" class="pulse" style="animation-delay:1.8s"/>
+
+          <circle cx="210" cy="190" r="36" fill="#0D2B2E"/>
+          <circle cx="210" cy="190" r="36" fill="none" stroke="#2FB8C4" stroke-width="2"/>
+          <path d="M197 190 l9 9 l17 -19" stroke="#F1F6F5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST STRIP ============ -->
+  <section class="bg-deep">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-ice/70">Trusted by IT teams managing infrastructure at scale</p>
+      <div class="flex items-center gap-8 text-sm font-medium">
+        <span class="text-amber">99.97% uptime SLA</span>
+        <span class="text-cyan">SOC 2 Type II</span>
+        <span class="text-coral">24/7 monitoring</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="max-w-6xl mx-auto px-6 lg:px-8 py-24 lg:py-28 grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-4">
+      <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-deep leading-tight">About Us</h2>
+    </div>
+    <div class="lg:col-span-7 lg:col-start-6">
+      <p class="text-lg text-slate leading-relaxed max-w-2xl">
+        Ferrix AI was founded by IT operators who were tired of finding out about outages from angry
+        customers instead of their own tools. We build software that reads infrastructure signals the
+        way an experienced sysadmin would — catching the pattern before it becomes a page at 3 a.m.
+      </p>
+      <p class="mt-6 text-lg text-slate leading-relaxed max-w-2xl">
+        Our platform runs quietly in the background of your infrastructure, learning what normal looks
+        like for your systems specifically, then acting the moment something drifts from it. No
+        generic thresholds, no noisy alerts — just software that understands your environment.
+      </p>
+
+      <div class="mt-12 grid grid-cols-3 gap-8 max-w-lg border-t border-line pt-8">
+        <div>
+          <p class="font-serif text-3xl font-semibold text-amber">400+</p>
+          <p class="text-sm text-slate mt-1">IT teams supported</p>
+        </div>
+        <div>
+          <p class="font-serif text-3xl font-semibold text-cyan">2.4M</p>
+          <p class="text-sm text-slate mt-1">Incidents resolved automatically</p>
+        </div>
+        <div>
+          <p class="font-serif text-3xl font-semibold text-coral">6 yrs</p>
+          <p class="text-sm text-slate mt-1">In production environments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="max-w-6xl mx-auto px-6 lg:px-8 py-24 lg:py-28">
+    <div class="grid lg:grid-cols-12 gap-12 mb-16">
+      <div class="lg:col-span-4">
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-deep leading-tight">Services</h2>
+      </div>
+      <div class="lg:col-span-7 lg:col-start-6">
+        <p class="text-lg text-slate leading-relaxed max-w-2xl">
+          Four ways Ferrix plugs into how your team already works — deploy one, or all of them together.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="rounded-md p-8 bg-white border-t-4 border-amber shadow-sm">
+        <div class="w-11 h-11 rounded-md bg-amber/15 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8A33D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-deep mb-3">Predictive monitoring</h3>
+        <p class="text-slate leading-relaxed">
+          Continuous analysis of infrastructure metrics to flag developing issues — disk pressure,
+          memory leaks, network drift — days before they cause downtime.
+        </p>
+      </div>
+
+      <div class="rounded-md p-8 bg-white border-t-4 border-cyan shadow-sm">
+        <div class="w-11 h-11 rounded-md bg-cyan/15 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2FB8C4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-deep mb-3">Automated incident response</h3>
+        <p class="text-slate leading-relaxed">
+          Routine incidents get diagnosed and resolved without a human in the loop, following
+          playbooks your team defines and approves.
+        </p>
+      </div>
+
+      <div class="rounded-md p-8 bg-white border-t-4 border-coral shadow-sm">
+        <div class="w-11 h-11 rounded-md bg-coral/15 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E4674B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-deep mb-3">Infrastructure automation</h3>
+        <p class="text-slate leading-relaxed">
+          Provisioning, scaling, and configuration handled by policy rather than tickets, with a full
+          audit trail of every change made.
+        </p>
+      </div>
+
+      <div class="rounded-md p-8 bg-white border-t-4 border-deep shadow-sm">
+        <div class="w-11 h-11 rounded-md bg-deep/10 flex items-center justify-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D2B2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8.2 7.2 10.5 16M15.8 7.2 13.5 16M8.5 6h7"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-deep mb-3">Custom integrations</h3>
+        <p class="text-slate leading-relaxed">
+          We connect Ferrix to your existing stack — ticketing, on-call tools, cloud providers — so
+          it fits into your workflow instead of replacing it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="bg-deep">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-24 lg:py-28 grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4">
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-ice leading-tight">Contact Us</h2>
+        <p class="mt-5 text-ice/70 leading-relaxed">
+          Tell us about your environment and we'll set up a walkthrough with someone from the team,
+          not a scripted sales call.
+        </p>
+
+        <div class="mt-10 space-y-4 text-[15px]">
+          <div>
+            <p class="text-ice/50">Email</p>
+            <p class="text-ice font-medium">hello@ferrixai.com</p>
+          </div>
+          <div>
+            <p class="text-ice/50">Phone</p>
+            <p class="text-ice font-medium">+1 (555) 019-2244</p>
+          </div>
+          <div>
+            <p class="text-ice/50">Office</p>
+            <p class="text-ice font-medium">148 Harbor Street, Suite 400<br>Austin, TX 78701</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 lg:col-start-6">
+        <form class="grid sm:grid-cols-2 gap-6" onsubmit="event.preventDefault(); document.getElementById('formSuccess').classList.remove('hidden'); this.reset();">
+          <div class="sm:col-span-1">
+            <label for="name" class="block text-sm text-ice/60 mb-2">Full name</label>
+            <input type="text" id="name" name="name" required
+              class="w-full border border-ice/20 rounded-sm px-4 py-3 text-ice bg-white/5 focus:outline-none focus:border-cyan transition-colors focus-ring">
+          </div>
+          <div class="sm:col-span-1">
+            <label for="email" class="block text-sm text-ice/60 mb-2">Work email</label>
+            <input type="email" id="email" name="email" required
+              class="w-full border border-ice/20 rounded-sm px-4 py-3 text-ice bg-white/5 focus:outline-none focus:border-cyan transition-colors focus-ring">
+          </div>
+          <div class="sm:col-span-2">
+            <label for="company" class="block text-sm text-ice/60 mb-2">Company</label>
+            <input type="text" id="company" name="company"
+              class="w-full border border-ice/20 rounded-sm px-4 py-3 text-ice bg-white/5 focus:outline-none focus:border-cyan transition-colors focus-ring">
+          </div>
+          <div class="sm:col-span-2">
+            <label for="message" class="block text-sm text-ice/60 mb-2">What are you looking to solve?</label>
+            <textarea id="message" name="message" rows="4" required
+              class="w-full border border-ice/20 rounded-sm px-4 py-3 text-ice bg-white/5 focus:outline-none focus:border-cyan transition-colors focus-ring resize-none"></textarea>
+          </div>
+          <div class="sm:col-span-2 flex items-center gap-5">
+            <button type="submit"
+              class="inline-flex items-center px-6 py-3.5 bg-coral text-ice font-medium rounded-sm hover:bg-amber hover:text-deep transition-colors focus-ring">
+              Send message
+            </button>
+            <p id="formSuccess" class="hidden text-cyan text-sm">Thanks — we'll be in touch shortly.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-line bg-ice">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate">© 2026 Ferrix AI. All rights reserved.</p>
+    <div class="flex items-center gap-8 text-sm text-slate">
+      <a href="#about" class="hover:text-deep transition-colors">About Us</a>
+      <a href="#services" class="hover:text-deep transition-colors">Services</a>
+      <a href="#contact" class="hover:text-deep transition-colors">Contact Us</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('menuIconOpen');
+  const iconClose = document.getElementById('menuIconClose');
+
+  menuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
 </html>
